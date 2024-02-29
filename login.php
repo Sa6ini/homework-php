@@ -123,7 +123,7 @@
             border-top-left-radius: 0;
             border-top-right-radius: 0;
         }
-
+        
     </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 </head>
@@ -134,7 +134,7 @@
     </div>
     <main class="form-signin">
     
-        <h1 class="h3">Register page</h1>
+        <h1 class="h3">Login page</h1>
         <form method="post">
             <div class="form-floating">
                 <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
@@ -164,7 +164,7 @@
             </div>
             <input type="submit" name="submit" value="Register">
         </form>
-        <a href="login.php">I already have an account</a>
+        <a href="test php.php">I don't have an account</a>
     </main>
     <?php 
     $conn = new mysqli("localhost","root","","sergiev_db",);
