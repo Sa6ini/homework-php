@@ -161,18 +161,18 @@
     if(isset($_POST["submit"])){
         $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_SPECIAL_CHARS);
         $pass = filter_input(INPUT_POST, "pass", FILTER_SANITIZE_SPECIAL_CHARS);
-        if(empty($email)||empty($pass)){
-            echo  "Please enter email/password";
-        }
-        $sqlQuery = "SELECT...";
+        $sqlQuery = "SELECT `email` FROM `regiater form pesho` WHERE `email` = '$email' AND `password` = '$pass'";
         $result = $conn->query($sqlQuery);
         //$result = $conn->query("SELECT * FROM form WHERE email='$email'");
-        if($result){
-            //
+        $rows = mysqli_num_rows($result);
+        //Проверка за потребител
+        if($rows > 0){
+            echo "
+                <script>
+                    window.location.assign('index.php');
+                </script>
+                ";
         }
-            $stmt->close();
-        }
-
     }
     ?>
 </body>
