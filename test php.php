@@ -152,7 +152,7 @@
             <label for="gender">Gender</label>
             <div>
                 <input type="radio" id="male" name="gender" value="Male">
-                <label for="html">Male</label><br>
+                <label for="male">Male</label><br>
                 <input type="radio" id="female" name="gender" value="Female">
                 <label for="female">Female</label><br>
             </div>
@@ -190,7 +190,9 @@
             $stmt = $conn->prepare("INSERT INTO form (email, pass, gender) VALUES(?, ?, ?)");
             $stmt->bind_param("sss", $email, $hash, $gender);
             if($stmt->execute()){
-                echo "User is registered!";
+                echo "<script>
+                    window.location.assign('login.php');
+                </script>";
             }
             else{
                 echo "User cannot be registered!";
