@@ -190,7 +190,9 @@
             $stmt = $conn->prepare("INSERT INTO form (email, pass, gender) VALUES(?, ?, ?)");
             $stmt->bind_param("sss", $email, $hash, $gender);
             if($stmt->execute()){
-                echo "User is registered!";
+                echo "<script>
+                    window.location.assign('login.php');
+                </script>";
             }
             else{
                 echo "User cannot be registered!";
