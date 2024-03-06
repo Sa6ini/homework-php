@@ -145,56 +145,31 @@
                 <input type="password" name="pass" class="form-control" id="floatingPassword" placeholder="Password" required>
                 <label for="floatingPassword">Password</label>
             </div>
-            <div class="form-floating">
-                <input type="password" name="con_pass" class="form-control" id="floatingPassword" placeholder="Confirm password" required>
-                <label for="floatingPassword">Confirm password</label>
-            </div>
-            <label for="gender">Gender</label>
-            <div>
-                <input type="radio" id="male" name="gender" value="Male">
-                <label for="html">Male</label><br>
-                <input type="radio" id="female" name="gender" value="Female">
-                <label for="female">Female</label><br>
-            </div>
             <div class="checkbox mb-3">
                 <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" value="1" name="remember_me" id="rememberMeSwitch">
                     <label class="form-check-label" for="rememberMeSwitch"> Remember me</label>
                 </div>
             </div>
-            <input type="submit" name="submit" value="Register">
+            <input type="submit" name="submit" value="Login">
         </form>
         <a href="test php.php">I don't have an account</a>
     </main>
     <?php 
+    //add session
     $conn = new mysqli("localhost","root","","sergiev_db",);
     if(isset($_POST["submit"])){
         $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_SPECIAL_CHARS);
         $pass = filter_input(INPUT_POST, "pass", FILTER_SANITIZE_SPECIAL_CHARS);
-        $con_pass = filter_input(INPUT_POST, "con_pass", FILTER_SANITIZE_SPECIAL_CHARS);
-        $gender = $_POST["gender"];
-        //$rem = $_POST["remember_me"];
-        //$exist = "SELECT FROM form (email)";
         if(empty($email)||empty($pass)){
             echo  "Please enter email/password";
         }
-        elseif($pass != $con_pass){
-            echo "Password doesn't match";
+        $sqlQuery = "SELECT...";
+        $result = $conn->query($sqlQuery);
+        //$result = $conn->query("SELECT * FROM form WHERE email='$email'");
+        if($result){
+            //
         }
-        $result = $conn->query("SELECT * FROM form WHERE email='$email'");
-        if($result->num_rows > 0){
-            echo "This email already exists";
-        }
-        else{
-            $hash = password_hash($pass, PASSWORD_DEFAULT);
-            $stmt = $conn->prepare("INSERT INTO form (email, pass, gender) VALUES(?, ?, ?)");
-            $stmt->bind_param("sss", $email, $hash, $gender);
-            if($stmt->execute()){
-                echo "User is registered!";
-            }
-            else{
-                echo "User cannot be registered!";
-            }
             $stmt->close();
         }
 
