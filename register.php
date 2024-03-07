@@ -5,13 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <style>
-        @mixin glassmorphism() {
-     background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(10px);
-    border-top: 1px solid rgba(255,255,255,0.2);
-    border-left: 1px solid rgba(255,255,255,0.2);
-    box-shadow: 5px 5px 30px rgba(0,0,0,0.2);
+    @mixin glassmorphism() {
+        background: rgba(255,255,255,0.05);
+        backdrop-filter: blur(10px);
+        border-top: 1px solid rgba(255,255,255,0.2);
+        border-left: 1px solid rgba(255,255,255,0.2);
+        box-shadow: 5px 5px 30px rgba(0,0,0,0.2);
     }
     html,
     body {
@@ -36,7 +37,6 @@
     padding-bottom: 40px;
     background-color: #f5f5f5;
     }
-
     .form-signin {
         width: 100%;
         max-width: 330px;
@@ -47,74 +47,65 @@
         border-radius: 3px;
     }
 
-        .h1 {
-            @include glassmorphism();
-            margin-top: 0px;
-            border-top-left-radius: 3px;
-            border-top-right-radius: 3px;
-            color:#fff;
-            padding:15px;
-            text-align:center;
-        }
+    .form-signin>.h1 {
+        @include glassmorphism();
+        margin-top: 0px;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        color:#fff;
+        padding:15px;
+        text-align:center;
+    }
 
   
-        form {
+    .form-signin>form {
             padding:15px;
+        }
+        .form-signin>form>.btn{
+            @include glassmorphism;
+            color:#fff;
             
-            .btn {
-                @include glassmorphism;
-                color:#fff;
-            
-                &:hover, &:focus {
-                    background: rgba(255,255,255,0.1);
-                    box-shadow:none;
-                }
-            }
-    
-            .form-control:focus {
-            border-color:#ced4da;
-            box-shadow: 5px 5px 30px rgba(0,0,0,0.2);
-            }
+        }
+        .form-signin>form>.btn>:hover,:focus{
+            background: rgba(255,255,255,0.1);
+            box-shadow:none;
         }
         
-        .form-control:focus {
+        .form-signin>.form-control:focus {
             border-color:#ced4da;
             box-shadow: 5px 5px 30px rgba(0,0,0,0.2);
         }
     
-        .copyright {
+        .form-signin>.copyright {
             text-align:center;
             color:rgba(255,255,255,0.65);
         }
         
-        .form-control {
+        .form-signin>.form-control {
             background:rgba(255,255,255,0.9);
         }
     
-        .form-check {
+        .form-signin>.form-check {
             display:flex;
             align-items:center;
             color:rgba(255,255,255,0.65);
-            label {
-            font-size:0.9em;
-            }
         }
-        input {
+        .form-signin>.form-check>label{
+            font-size:0.9e;
+        }
+        .form-signin>input {
         margin-right:0.5em;
-        
-            &:checked {
-                background-color:#9ce060;
-                border-color: #81c63f;
-            }
         }
-        .form-floating {
-            &:focus-within {
-                z-index: 2;
-            }
+        .form-signin>input>:checked{
+            background-color:#9ce060;
+            border-color: #81c63f;
+        }
+        .form-signin>.form-floating>:focus-within{
+            z-index: 2;
         }
         
         input[type="email"] {
-            margin-bottom: -1px;
+            margin-bottom:10px;
             border-bottom-right-radius: 0;
             border-bottom-left-radius: 0;
         }
@@ -123,9 +114,7 @@
             border-top-left-radius: 0;
             border-top-right-radius: 0;
         }
-
     </style>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 </head>
 <body>
     <div class="bg">
@@ -152,7 +141,7 @@
             <label for="gender">Gender</label>
             <div>
                 <input type="radio" id="male" name="gender" value="Male">
-                <label for="male">Male</label><br>
+                <label for="html">Male</label><br>
                 <input type="radio" id="female" name="gender" value="Female">
                 <label for="female">Female</label><br>
             </div>
@@ -164,7 +153,7 @@
             </div>
             <input type="submit" name="submit" value="Register">
         </form>
-        <a href="login.php">I already have an account</a>
+        <a href="login.php" style="color: white;">I already have an account</a>
     </main>
     <?php 
     $conn = new mysqli("localhost","root","","sergiev_db",);
@@ -186,13 +175,11 @@
             echo "This email already exists";
         }
         else{
-            $hash = password_hash($pass, PASSWORD_DEFAULT);
+            //$hash = password_hash($pass, PASSWORD_DEFAULT);
             $stmt = $conn->prepare("INSERT INTO form (email, pass, gender) VALUES(?, ?, ?)");
-            $stmt->bind_param("sss", $email, $hash, $gender);
+            $stmt->bind_param("sss", $email, $pass, $gender);
             if($stmt->execute()){
-                echo "<script>
-                    window.location.assign('login.php');
-                </script>";
+                echo "User is registered!";
             }
             else{
                 echo "User cannot be registered!";
