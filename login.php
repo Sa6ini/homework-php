@@ -156,13 +156,12 @@
         //$hash = password_hash($pass, PASSWORD_DEFAULT);
         $sqlQuery = "SELECT * FROM `form` WHERE `email` = '$email' AND `pass` = '$pass'";
         $result = $conn->query($sqlQuery);
-        //$result = $conn->query("SELECT * FROM `form` WHERE `email`='$email'");
+        //$result = $conn->query("SELECT * FROM `form` WHERE `email`='$email' LIMIT 1");
         $rows = mysqli_num_rows($result);
         //Проверка за потребител
         if($rows > 0){
             $row = mysqli_fetch_assoc($result);
-            //$id = "SELECT id FROM `form`";
-            //$username = "SELECT `username` FROM `form`";
+            //while cikul
             setcookie("id", $row['id'], time() + 36000, "/");
             //header('Location:index.php');
         }
