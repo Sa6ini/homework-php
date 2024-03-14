@@ -5,8 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <style>
+    <?php    
+    $conn = new mysqli("localhost","root","","sergiev_db",);
+    session_start();
+
+    if(isset($_POST["submit"])){
+        $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_SPECIAL_CHARS);
+        $pass = filter_input(INPUT_POST, "pass", FILTER_SANITIZE_SPECIAL_CHARS);
+        $remeber = $_POST["remember_me"];
+        //$hash = password_hash($pass, PASSWORD_DEFAULT);
+        $sqlQuery = "SELECT * FROM `form` WHERE `email` = '$email' AND `pass` = '$pass'";
+        $result = $conn->query($sqlQuery);
+        //$result = $conn->query("SELECT * FROM `form` WHERE `email`='$email' LIMIT 1");
+        $rows = mysqli_num_rows($result);
+        //Проверка за потребител
+        if($rows > 0){
+            $row = mysqli_fetch_assoc($result);
+            //while cikul
+            if(isset($remeber)){
+                setcookie("id", $row['id'], time() + 36000, "/");
+            }
+            $_SESSION["id"] = $row['id'];
+            //header('Location:index.php');
+             echo "<script>window.location.assign('index.php');</script>";
+        }
+    }
+    ?>
+<style>
     @mixin glassmorphism() {
         background: rgba(255,255,255,0.05);
         backdrop-filter: blur(10px);
@@ -146,29 +173,5 @@
         </form>
         <a href="register.php" style="color:white;">I don't have an account</a>
     </main>
-    <?php    
-    $conn = new mysqli("localhost","root","","sergiev_db",);
-    session_start();
-
-    if(isset($_POST["submit"])){
-        $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_SPECIAL_CHARS);
-        $pass = filter_input(INPUT_POST, "pass", FILTER_SANITIZE_SPECIAL_CHARS);
-        //$hash = password_hash($pass, PASSWORD_DEFAULT);
-        $sqlQuery = "SELECT * FROM `form` WHERE `email` = '$email' AND `pass` = '$pass'";
-        $result = $conn->query($sqlQuery);
-        //$result = $conn->query("SELECT * FROM `form` WHERE `email`='$email' LIMIT 1");
-        $rows = mysqli_num_rows($result);
-        //Проверка за потребител
-        if($rows > 0){
-            $row = mysqli_fetch_assoc($result);
-            //while cikul
-            setcookie("id", $row['id'], time() + 36000, "/");
-            //header('Location:index.php');
-        }
-    }
-    if(isset($_COOKIE['id'])){
-        echo "<script>window.location.assign('index.php');</script>";
-    }
-    ?>
 </body>
 </html>

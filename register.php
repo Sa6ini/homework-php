@@ -174,7 +174,6 @@
         $con_pass = filter_input(INPUT_POST, "con_pass", FILTER_SANITIZE_SPECIAL_CHARS);
         $gender = $_POST["gender"];
         //$rem = $_POST["remember_me"];
-        //$exist = "SELECT FROM form (email)";
         if(empty($email)||empty($pass)){
             echo  "Please enter email/password";
         }
@@ -187,7 +186,7 @@
         }
         else{
             //$hash = password_hash($pass, PASSWORD_DEFAULT);
-            $sql = "INSERT INTO `form`(`id`, `username`, `email`, `pass`, `gender`, `time added`) VALUES (NULL, '$nae','$email','$pass','$gender', current_timestamp())";
+            $sql = "INSERT INTO `form`(`id`, `username`, `email`, `pass`, `gender`, `time`) VALUES (NULL, '$name','$email','$pass','$gender', current_timestamp())";
             $conn -> query($sql);
             echo "<script>window.location.assign('index.php');</script>";
         }

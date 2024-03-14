@@ -224,7 +224,25 @@ footer {
             <div class="portfolio-items">
                 <!-- Add your portfolio items here -->
                 <div class="portfolio-item">
-                    <img src="https://cdn.sci.news/images/2014/06/image_2024f-Neanderthals-plants.jpg" alt="Portfolio Item 1">
+                    <img src="<?php echo $image;?>" alt="Portfolio Item 1" onclick="chooseFile_1()">
+                    <form method="post" enctype="multipart/form-data">
+                        <input type="upload_image_submit" id="fileInput_1" name="fileInput_1" onchange="loadFile1(event)" style="display: none;"></input>
+                        <input type="submit" id="image_submit" name="image_submit" style="display: none;">
+                        <script>
+                            function chooseFile_1(){
+                                document.getElementById("fileInput_1").click();
+                            }
+                            var LoadFile1 = function(event){
+                                var output = document.getElementById("upload_image");
+                                upload_image.src = URL.createObjectURL(event.target.files[0]);
+                                upload_image.onload = function(){
+                                    URL.revokeObjectURL(upload_image)
+                                }
+                                document.getElementById("image_submit").click();
+                            };
+                            
+                        </script>
+                    </form>
                     <p>Diam sollicitudin tempor id eu nisl nunc mi ipsum. Risus nec feugiat in fermentum posuere. Nunc mattis enim ut tellus elementum sagittis vitae et. Quam quisque id diam vel quam. Tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam vestibulum morbi blandit cursus risus at. Vitae elementum curabitur vitae nunc sed velit dignissim. A lacus vestibulum sed arcu non odio euismod lacinia. </p>
                 </div>
                 <!-- Add more portfolio items as needed -->
@@ -256,5 +274,16 @@ footer {
             <p>&copy; 2024 Soc mreja. All rights reserved.</p>
         </div>
     </footer>
+    
+    <?php
+        if(isset($_POST["image_submit"])){
+            $folder = 'user_images/';
+            if($_FILES['fileInput_1']['tmp_name']!=""){
+                unlink($folder.$image);
+                $temp = explode(".",$_FILES["fileInput_1"]["name"]);
+                //Will be changed by the time and the user's username
+            }
+        }
+    ?>
 </body>
 </html>
