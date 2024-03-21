@@ -8,13 +8,13 @@
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <?php    
-    $conn = new mysqli("localhost","root","","sergiev_db",);
+    $conn = new mysqli("localhost","root","","sergiev_db");
     session_start();
 
     if(isset($_POST["submit"])){
         $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_SPECIAL_CHARS);
         $pass = filter_input(INPUT_POST, "pass", FILTER_SANITIZE_SPECIAL_CHARS);
-        $remeber = $_POST["remember_me"];
+        //$remeber = $_POST["remember_me"];
         //$hash = password_hash($pass, PASSWORD_DEFAULT);
         $sqlQuery = "SELECT * FROM `form` WHERE `email` = '$email' AND `pass` = '$pass'";
         $result = $conn->query($sqlQuery);

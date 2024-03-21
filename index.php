@@ -6,177 +6,177 @@
     <title>About Me</title>
     <style>
         /* Resetting default browser styles */
-body, h1, h2, h3, p, ul, li, form, input, textarea, button {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        body, h1, h2, h3, p, ul, li, form, input, textarea, button {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
-}
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+        }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px 0;
-}
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+        }
 
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-header nav ul {
-    list-style: none;
-}
+        header nav ul {
+            list-style: none;
+        }
 
-header nav ul li {
-    display: inline;
-}
+        header nav ul li {
+            display: inline;
+        }
 
-header nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    padding: 10px 20px;
-}
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+        }
 
-section {
-    padding: 50px 0;
-}
+        section {
+            padding: 50px 0;
+        }
 
-.about-me {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-}
+        .about-me {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
 
-.about-me img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    margin-right: 20px;
-}
+        .about-me img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
 
-.about-me .bio h2 {
-    font-size: 28px;
-    margin-bottom: 10px;
-}
+        .about-me .bio h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
 
-.skills-list {
-    list-style: none;
-    padding-left: 0;
-}
+        .skills-list {
+            list-style: none;
+            padding-left: 0;
+        }
 
-.skills-list li {
-    display: inline-block;
-    background-color: #eee;
-    padding: 8px 16px;
-    margin: 4px;
-    border-radius: 4px;
-}
+        .skills-list li {
+            display: inline-block;
+            background-color: #eee;
+            padding: 8px 16px;
+            margin: 4px;
+            border-radius: 4px;
+        }
 
-.portfolio-items {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
+        .portfolio-items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
 
-.portfolio-item {
-    flex-basis: calc(33.33% - 20px);
-    margin-bottom: 20px;
-}
+        .portfolio-item {
+            flex-basis: calc(33.33% - 20px);
+            margin-bottom: 20px;
+        }
 
-.portfolio-item img {
-    max-width: 100%;
-    border-radius: 8px;
-}
+        .portfolio-item img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
 
-.contact-form .form-group {
-    margin-bottom: 20px;
-}
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
 
-.contact-form label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
+        .contact-form label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
 
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-top: 5px;
-}
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-top: 5px;
+        }
 
-.contact-form textarea {
-    resize: vertical;
-}
+        .contact-form textarea {
+            resize: vertical;
+        }
 
-.contact-form button {
-    background-color: #333;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-}
+        .contact-form button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
 
-footer {
-    background-color: #333;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-}
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
 
-/* Responsive Styles */
-@media only screen and (max-width: 768px) {
-    .container {
-        padding: 0 10px;
-    }
+        /* Responsive Styles */
+        @media only screen and (max-width: 768px) {
+            .container {
+                padding: 0 10px;
+            }
 
-    .about-me img {
-        width: 150px;
-        height: 150px;
-        margin-right: 10px;
-    }
+            .about-me img {
+                width: 150px;
+                height: 150px;
+                margin-right: 10px;
+            }
 
-    .about-me .bio h2 {
-        font-size: 24px;
-    }
+            .about-me .bio h2 {
+                font-size: 24px;
+            }
 
-    .portfolio-item {
-        flex-basis: calc(50% - 10px);
-    }
-}
+            .portfolio-item {
+                flex-basis: calc(50% - 10px);
+            }
+        }
 
-@media only screen and (max-width: 480px) {
-    .about-me img {
-        width: 100px;
-        height: 100px;
-        margin-right: 10px;
-    }
+        @media only screen and (max-width: 480px) {
+            .about-me img {
+                width: 100px;
+                height: 100px;
+                margin-right: 10px;
+            }
 
-    .about-me .bio h2 {
-        font-size: 20px;
-    }
+            .about-me .bio h2 {
+                font-size: 20px;
+            }
 
-    .portfolio-item {
-        flex-basis: 100%;
-    }
-}
+            .portfolio-item {
+                flex-basis: 100%;
+            }
+        }
 
     </style>
 </head>
@@ -224,26 +224,25 @@ footer {
             <div class="portfolio-items">
                 <!-- Add your portfolio items here -->
                 <div class="portfolio-item">
-                    <img src="<?php echo $image;?>" alt="Portfolio Item 1" onclick="chooseFile_1()">
-                    <form method="post" enctype="multipart/form-data">
-                        <input type="upload_image_submit" id="fileInput_1" name="fileInput_1" onchange="loadFile1(event)" style="display: none;"></input>
-                        <input type="submit" id="image_submit" name="image_submit" style="display: none;">
-                        <script>
-                            function chooseFile_1(){
-                                document.getElementById("fileInput_1").click();
+                <img id="upload_image" src="<?php echo $image;?>" class="profile_img" onclick="chooseFile_1()">
+                <form method="post" enctype="multipart/form-data">
+                    <input class="upload_image_input" id="fileInput_1" name="fileInput_1" type="file" onchange="loadFile1(event)" style="display: none;"></input>
+                    <input type="submit" id="upload_image_submit" name="upload_image_submit" style="display: none;">
+                    <script>
+                        function chooseFile_1() {
+                            document.getElementById("fileInput_1").click();
+                        } 
+                        var loadFile1 = function(event) {
+                            var output = document.getElementById("upload_image");
+                            upload_image.src = URL.createObjectURL(event.target.files[0]);
+                            upload_image.onload = function() {
+                                URL.revokeObjectURL(upload_image.src) // free memory
                             }
-                            var LoadFile1 = function(event){
-                                var output = document.getElementById("upload_image");
-                                upload_image.src = URL.createObjectURL(event.target.files[0]);
-                                upload_image.onload = function(){
-                                    URL.revokeObjectURL(upload_image)
-                                }
-                                document.getElementById("image_submit").click();
-                            };
-                            
-                        </script>
-                    </form>
-                    <p>Diam sollicitudin tempor id eu nisl nunc mi ipsum. Risus nec feugiat in fermentum posuere. Nunc mattis enim ut tellus elementum sagittis vitae et. Quam quisque id diam vel quam. Tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam vestibulum morbi blandit cursus risus at. Vitae elementum curabitur vitae nunc sed velit dignissim. A lacus vestibulum sed arcu non odio euismod lacinia. </p>
+                            document.getElementById("upload_image_submit").click();
+                        };
+                    </script>
+                </form> 
+                <p>Diam sollicitudin tempor id eu nisl nunc mi ipsum. Risus nec feugiat in fermentum posuere. Nunc mattis enim ut tellus elementum sagittis vitae et. Quam quisque id diam vel quam. Tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam vestibulum morbi blandit cursus risus at. Vitae elementum curabitur vitae nunc sed velit dignissim. A lacus vestibulum sed arcu non odio euismod lacinia. </p>
                 </div>
                 <!-- Add more portfolio items as needed -->
             </div>
@@ -276,12 +275,28 @@ footer {
     </footer>
     
     <?php
-        if(isset($_POST["image_submit"])){
+        $conn = new mysqli("localhost","root","","sergiev_db");
+        if(isset($_POST["upload_image_submit"])){
             $folder = 'user_images/';
-            if($_FILES['fileInput_1']['tmp_name']!=""){
-                unlink($folder.$image);
-                $temp = explode(".",$_FILES["fileInput_1"]["name"]);
-                //Will be changed by the time and the user's username
+            if($_FILES['fileInput_1']['tmp_name']!="") {
+                unlink($folder . $image);
+                $temp = explode(".", $FILES["fileInput_1"]["name"]);
+                // will be changed by the time and user's username
+                $filename1 = round(microtime(true)) . '' . $_COOKIE["user_id"]  . '.' . end($temp);
+                //declaring variables
+                $filetmpname = $_FILES['fileInput_1']['tmp_name'];
+                //folder where images will be uploaded
+                //function for saving the uploaded images in a specific folder
+                move_uploaded_file($filetmpname, $folder.$filename1);
+                //inserting image details (in eg. image name) in the database
+            }
+            $sqlUpdate = "UPDATE form SET images='$filename1' WHERE id = '$profile_page_id'";
+            if($conn->query($sqlUpdate) === TRUE) {
+                echo "
+                    <script>
+                    window.location.assign('');
+                    </script>
+                ";
             }
         }
     ?>
