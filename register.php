@@ -132,8 +132,16 @@
         <h1 class="h3">Register page</h1>
         <form method="post">
             <div class="form-floating">
-                <input type="text" name="text" class="form-control" id="floatingInput" placeholder="Username" required>
+                <input type="text" name="username" class="form-control" id="floatingInput" placeholder="Username" required>
                 <label for="floatingInput">Username</label>
+            </div>
+            <div class="form-floating">
+                <input type="text" name="fname" class="form-control" id="floatingInput" placeholder="First name" required>
+                <label for="floatingInput">First name</label>
+            </div>
+            <div class="form-floating">
+                <input type="text" name="lname" class="form-control" id="floatingInput" placeholder="Last name" required>
+                <label for="floatingInput">Last name</label>
             </div>
             <div class="form-floating">
                 <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
@@ -168,7 +176,9 @@
     <?php 
     $conn = new mysqli("localhost","root","","sergiev_db",);
     if(isset($_POST["submit"])){
-        $name = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
+        $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
+        $fname = filter_input(INPUT_POST, "fname", FILTER_SANITIZE_SPECIAL_CHARS);
+        $lname = filter_input(INPUT_POST, "lname", FILTER_SANITIZE_SPECIAL_CHARS);
         $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_SPECIAL_CHARS);
         $pass = filter_input(INPUT_POST, "pass", FILTER_SANITIZE_SPECIAL_CHARS);
         $con_pass = filter_input(INPUT_POST, "con_pass", FILTER_SANITIZE_SPECIAL_CHARS);
@@ -186,7 +196,7 @@
         }
         else{
             //$hash = password_hash($pass, PASSWORD_DEFAULT);
-            $sql = "INSERT INTO `form`(`id`, `username`, `email`, `pass`, `gender`, `time`) VALUES (NULL, '$name','$email','$pass','$gender', current_timestamp())";
+            $sql = "INSERT INTO `form`(`id`, `username`,`name` , `lastname`, `email`, `pass`, `gender`, `time`) VALUES (NULL, '$username','$fname', '$lname','$email','$pass','$gender', current_timestamp())";
             $conn -> query($sql);
             echo "<script>window.location.assign('index.php');</script>";
         }

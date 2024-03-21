@@ -181,6 +181,25 @@
     </style>
 </head>
 <body>
+    <?php
+        error_reporting(0);
+        $conn = new mysqli("localhost","root","","sergiev_db");
+        $profile_page_id = $_GET["id"];
+        $sqlSelect = "SELECT * FROM `form` WHERE `id` = '$profile_page_id'";
+        $result = $conn->query($sqlSelect);
+        $row = $result->fetch_assoc();
+        $name = $row["name"];
+        $lname = $row["lastname"];
+        $username = $row["username"];
+        $gender = $row["gender"];
+        $image = $row["images"];
+        if($image == ""){
+            $image = "../user_images/default-profile-pic.jpg";
+        }
+        else{
+            $image = "../user_images/$image";
+        }
+    ?>
     <header>
         <div class="container">
             <h1>About Me</h1>
@@ -199,7 +218,7 @@
             <div class="about-me">
                 <img src="https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/U6PMNLLFATSSOZAODKKJN2RH4U.jpg&w=750&h=495" alt="Your Photo">
                 <div class="bio">
-                    <h2>Hello, I'm [Your Name]</h2>
+                    <h2>Hello, I'm <?php echo $name;?>  <?php echo $lname; ?></h2>
                     <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis tristique sollicitudin nibh sit amet commodo nulla facilisi nullam. In fermentum posuere urna nec tincidunt praesent semper feugiat nibh. Id aliquet risus feugiat in ante metus dictum. Ut consequat semper viverra nam libero justo. Malesuada fames ac turpis egestas sed tempus. Tellus at urna condimentum mattis pellentesque id nibh tortor. Molestie a iaculis at erat pellentesque. Nunc mi ipsum faucibus vitae aliquet. Nam aliquam sem et tortor. Vulputate eu scelerisque felis imperdiet. Viverra justo nec ultrices dui. Bibendum ut tristique et egestas quis. At elementum eu facilisis sed odio morbi. Urna neque viverra justo nec ultrices dui sapien. Neque convallis a cras semper.
                     </p>
@@ -275,14 +294,14 @@
     </footer>
     
     <?php
-        $conn = new mysqli("localhost","root","","sergiev_db");
+        
         if(isset($_POST["upload_image_submit"])){
             $folder = 'user_images/';
             if($_FILES['fileInput_1']['tmp_name']!="") {
-                unlink($folder . $image);
-                $temp = explode(".", $FILES["fileInput_1"]["name"]);
+                unlink($image);
+                $temp = explode(".", $_FILES["fileInput_1"]["name"]);
                 // will be changed by the time and user's username
-                $filename1 = round(microtime(true)) . '' . $_COOKIE["user_id"]  . '.' . end($temp);
+                $filename1 = round(microtime(true)) . '.' . end($temp);
                 //declaring variables
                 $filetmpname = $_FILES['fileInput_1']['tmp_name'];
                 //folder where images will be uploaded
@@ -290,8 +309,8 @@
                 move_uploaded_file($filetmpname, $folder.$filename1);
                 //inserting image details (in eg. image name) in the database
             }
-            $sqlUpdate = "UPDATE form SET images='$filename1' WHERE id = '$profile_page_id'";
-            if($conn->query($sqlUpdate) === TRUE) {
+            $sqlUpdate = "UPDATE `form` SET `images`='$filename1' WHERE `id` = '$profile_page_id'";
+            if($conn->query($sqlUpdate)) {
                 echo "
                     <script>
                     window.location.assign('');

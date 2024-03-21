@@ -28,8 +28,9 @@
                 setcookie("id", $row['id'], time() + 36000, "/");
             }
             $_SESSION["id"] = $row['id'];
+            $id = $row['id'];
             //header('Location:index.php');
-             echo "<script>window.location.assign('index.php');</script>";
+             echo "<script>window.location.assign('index.php/?id=$id');</script>";
         }
     }
     ?>
