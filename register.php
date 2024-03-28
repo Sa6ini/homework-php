@@ -7,13 +7,7 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <style>
-    @mixin glassmorphism() {
-        background: rgba(255,255,255,0.05);
-        backdrop-filter: blur(10px);
-        border-top: 1px solid rgba(255,255,255,0.2);
-        border-left: 1px solid rgba(255,255,255,0.2);
-        box-shadow: 5px 5px 30px rgba(0,0,0,0.2);
-    }
+    
     html,
     body {
     height: 100%;
@@ -45,12 +39,10 @@
         border-style:solid;
         
         padding: 20px;
-        @include glassmorphism();
         border-radius: 3px;
     }
 
     .form-signin>.h1 {
-        @include glassmorphism();
         margin-top: 0px;
         border-top-left-radius: 3px;
         border-top-right-radius: 3px;
@@ -64,7 +56,6 @@
             padding:15px;
         }
         .form-signin>form>.btn{
-            @include glassmorphism;
             color:#fff;
             
         }

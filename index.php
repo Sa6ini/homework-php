@@ -24,6 +24,7 @@
             margin: 0 auto;
             padding: 0 20px;
         }
+        
 
         header {
             background-color: #333;
@@ -47,6 +48,17 @@
 
         header nav ul li a {
             color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+        }
+        header nav ul li button {
+            color: black;
+            border-radius: 15px;
+            text-decoration: none;
+            padding: 10px 20px;
+        }
+        header nav ul li button a {
+            color: black;
             text-decoration: none;
             padding: 10px 20px;
         }
@@ -209,6 +221,7 @@
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li><button><a href="/soc_mreja/login.php">Log out</a></button></li>
                 </ul>
             </nav>
         </div>
@@ -216,7 +229,24 @@
     <section id="about" class="section">
         <div class="container">
             <div class="about-me">
-                <img src="https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/U6PMNLLFATSSOZAODKKJN2RH4U.jpg&w=750&h=495" alt="Your Photo">
+                <img id="upload_image" src="<?php echo $image;?>" class="profile_img" onclick="chooseFile_1()">
+                <form method="post" enctype="multipart/form-data">
+                    <input class="upload_image_input" id="fileInput_1" name="fileInput_1" type="file" onchange="loadFile1(event)" style="display: none;"></input>
+                    <input type="submit" id="upload_image_submit" name="upload_image_submit" style="display: none;">
+                    <script>
+                        function chooseFile_1() {
+                            document.getElementById("fileInput_1").click();
+                        } 
+                        var loadFile1 = function(event) {
+                            var output = document.getElementById("upload_image");
+                            upload_image.src = URL.createObjectURL(event.target.files[0]);
+                            upload_image.onload = function() {
+                                URL.revokeObjectURL(upload_image.src) // free memory
+                            }
+                            document.getElementById("upload_image_submit").click();
+                        };
+                    </script>
+                </form> 
                 <div class="bio">
                     <h2>Hello, I'm <?php echo $name;?>  <?php echo $lname; ?></h2>
                     <p>
@@ -243,25 +273,25 @@
             <div class="portfolio-items">
                 <!-- Add your portfolio items here -->
                 <div class="portfolio-item">
-                <img id="upload_image" src="<?php echo $image;?>" class="profile_img" onclick="chooseFile_1()">
-                <form method="post" enctype="multipart/form-data">
-                    <input class="upload_image_input" id="fileInput_1" name="fileInput_1" type="file" onchange="loadFile1(event)" style="display: none;"></input>
-                    <input type="submit" id="upload_image_submit" name="upload_image_submit" style="display: none;">
-                    <script>
-                        function chooseFile_1() {
-                            document.getElementById("fileInput_1").click();
-                        } 
-                        var loadFile1 = function(event) {
-                            var output = document.getElementById("upload_image");
-                            upload_image.src = URL.createObjectURL(event.target.files[0]);
-                            upload_image.onload = function() {
-                                URL.revokeObjectURL(upload_image.src) // free memory
-                            }
-                            document.getElementById("upload_image_submit").click();
-                        };
-                    </script>
-                </form> 
-                <p>Diam sollicitudin tempor id eu nisl nunc mi ipsum. Risus nec feugiat in fermentum posuere. Nunc mattis enim ut tellus elementum sagittis vitae et. Quam quisque id diam vel quam. Tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam vestibulum morbi blandit cursus risus at. Vitae elementum curabitur vitae nunc sed velit dignissim. A lacus vestibulum sed arcu non odio euismod lacinia. </p>
+                    <img id="upload_image" src="<?php echo $image;?>" class="profile_img" onclick="chooseFile_1()">
+                    <form method="post" enctype="multipart/form-data">
+                        <input class="upload_image_input" id="fileInput_1" name="fileInput_1" type="file" onchange="loadFile1(event)" style="display: none;"></input>
+                        <input type="submit" id="upload_image_submit" name="upload_image_submit" style="display: none;">
+                        <script>
+                            function chooseFile_1() {
+                                document.getElementById("fileInput_1").click();
+                            } 
+                            var loadFile1 = function(event) {
+                                var output = document.getElementById("upload_image");
+                                upload_image.src = URL.createObjectURL(event.target.files[0]);
+                                upload_image.onload = function() {
+                                    URL.revokeObjectURL(upload_image.src) // free memory
+                                }
+                                document.getElementById("upload_image_submit").click();
+                            };
+                        </script>
+                    </form> 
+                    <p>Diam sollicitudin tempor id eu nisl nunc mi ipsum. Risus nec feugiat in fermentum posuere. Nunc mattis enim ut tellus elementum sagittis vitae et. Quam quisque id diam vel quam. Tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam vestibulum morbi blandit cursus risus at. Vitae elementum curabitur vitae nunc sed velit dignissim. A lacus vestibulum sed arcu non odio euismod lacinia. </p>
                 </div>
                 <!-- Add more portfolio items as needed -->
             </div>
@@ -318,6 +348,7 @@
                 ";
             }
         }
+        
     ?>
 </body>
 </html>

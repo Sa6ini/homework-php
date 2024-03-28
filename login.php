@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <?php    
@@ -35,13 +35,7 @@
     }
     ?>
 <style>
-    @mixin glassmorphism() {
-        background: rgba(255,255,255,0.05);
-        backdrop-filter: blur(10px);
-        border-top: 1px solid rgba(255,255,255,0.2);
-        border-left: 1px solid rgba(255,255,255,0.2);
-        box-shadow: 5px 5px 30px rgba(0,0,0,0.2);
-    }
+    
     html,
     body {
     height: 100%;
@@ -54,8 +48,6 @@
     right:0;
     bottom:0;
     left:0;
-    
-    background-image: radial-gradient(circle at 30% 86%, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.03) 8%,transparent 8%, transparent 92%),radial-gradient(circle at 55% 100%, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.03) 8%,transparent 8%, transparent 92%),radial-gradient(circle at 40% 75%, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.03) 6%,transparent 6%, transparent 94%),radial-gradient(circle at 7% 99%, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.03) 6%,transparent 6%, transparent 94%),radial-gradient(circle at 69% 76%, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.03) 6%,transparent 6%, transparent 94%),radial-gradient(circle at 2% 35%, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.03) 6%,transparent 6%, transparent 94%),radial-gradient(circle at 14% 48%, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.03) 6%,transparent 6%, transparent 94%),radial-gradient(circle at 28% 87%, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.04) 4%,transparent 4%, transparent 96%),radial-gradient(circle at 65% 14%, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.04) 4%,transparent 4%, transparent 96%),radial-gradient(circle at 51% 36%, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.04) 4%,transparent 4%, transparent 96%),radial-gradient(circle at 6% 93%, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.04) 4%,transparent 4%, transparent 96%),linear-gradient(135deg, rgb(23, 233, 173),rgb(29, 24, 208));
     }
 
     body {
@@ -63,7 +55,9 @@
     align-items: center;
     padding-top: 40px;
     padding-bottom: 40px;
-    background-color: #f5f5f5;
+    background-image: url(153710-abstract-blue-and-green-background-vector-illustration.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     }
     .form-signin {
         width: 100%;
@@ -72,12 +66,10 @@
         margin-top: 10%;
         border-style:solid;
         padding: 20px;
-        @include glassmorphism();
         border-radius: 3px;
     }
 
     .form-signin>.h1 {
-        @include glassmorphism();
         margin-top: 0px;
         border-top-left-radius: 3px;
         border-top-right-radius: 3px;
@@ -91,7 +83,6 @@
             padding:15px;
         }
         .form-signin>form>.btn{
-            @include glassmorphism;
             color:#fff;
             
         }
@@ -172,7 +163,7 @@
             </div>
             <input type="submit" name="submit" value="Login">
         </form>
-        <a href="register.php" style="color:white;">I don't have an account</a>
+        <a href="/soc_mreja/register.php" style="color:white;">I don't have an account</a>
     </main>
 </body>
 </html>
